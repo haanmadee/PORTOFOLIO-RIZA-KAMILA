@@ -20,15 +20,6 @@
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
-                    },
-                    animation: {
-                        'marquee': 'marquee 25s linear infinite',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-100%)' },
-                        }
                     }
                 }
             }
@@ -43,12 +34,21 @@
             overflow-x: hidden; 
             overflow-y: auto; 
         }
+
+        /* Sembunyikan Scrollbar tapi tetap bisa scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
         
         /* --- SLIDER STYLES --- */
         #hero-container {
             width: 100vw;
-            /* UBAHAN PENTING: Tinggi dibuat fix dan persegi panjang (Banner style) */
-            height: 280px; 
+            /* UBAHAN: Tinggi diperkecil jadi 200px untuk Mobile (Banner Style) */
+            height: 200px; 
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid #eee;
@@ -83,9 +83,6 @@
         
         .scroll-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .scroll-section.visible { opacity: 1; transform: translateY(0); }
-
-        .marquee-content { display: flex; gap: 0.5rem; width: max-content; }
-        @media (min-width: 768px) { .marquee-content { gap: 1rem; } }
     </style>
 </head>
 <body class="text-gray-900">
@@ -103,14 +100,13 @@
 
             <div class="slide active">
                 <div class="w-full h-full flex flex-row">
-                    
                     <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-16 bg-white relative z-20 border-r border-gray-100">
                         <div class="reveal-up">
-                            <span class="text-[8px] md:text-[10px] font-bold tracking-[0.2em] text-burgundy block mb-1">PORTFOLIO</span>
-                            <h1 class="text-2xl md:text-[5rem] leading-[1] font-serif font-bold text-black mb-1 md:mb-4">
+                            <span class="text-[7px] md:text-[10px] font-bold tracking-[0.2em] text-burgundy block mb-0.5">PORTFOLIO</span>
+                            <h1 class="text-xl md:text-[5rem] leading-[1] font-serif font-bold text-black mb-1 md:mb-4">
                                 RIZA <br> <span class="text-burgundy italic font-medium">Kamila.</span>
                             </h1>
-                            <p class="text-[8px] md:text-sm text-gray-500 leading-tight max-w-xs border-l-2 border-burgundy pl-2">
+                            <p class="text-[7px] md:text-sm text-gray-500 leading-tight max-w-xs border-l-2 border-burgundy pl-2">
                                 Professional MC & Public Speaking Mentor based in Malang.
                             </p>
                         </div>
@@ -123,12 +119,13 @@
             </div>
 
             <div class="slide bg-[#fafafa]">
-                <div class="w-full h-full flex flex-row"> <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-12 relative z-20 border-r border-gray-100">
-                         <span class="text-burgundy text-[8px] font-bold tracking-[0.2em] mb-1 block reveal-up">SERVICE</span>
-                         <h2 class="text-xl md:text-5xl font-serif font-bold mb-2 reveal-up leading-tight">Pro. <br> <span class="italic text-gray-400 font-light">Service.</span></h2>
-                         <ul class="space-y-1 text-[8px] md:text-sm text-gray-800 reveal-up font-serif w-full">
-                            <li class="border-b border-gray-200 pb-1">Master of Ceremony</li>
-                            <li class="border-b border-gray-200 pb-1">Public Speaking Mentor</li>
+                <div class="w-full h-full flex flex-row"> 
+                    <div class="w-1/2 h-full flex flex-col justify-center px-4 md:px-12 relative z-20 border-r border-gray-100">
+                         <span class="text-burgundy text-[7px] font-bold tracking-[0.2em] mb-0.5 block reveal-up">SERVICE</span>
+                         <h2 class="text-lg md:text-5xl font-serif font-bold mb-1 reveal-up leading-tight">Pro. <br> <span class="italic text-gray-400 font-light">Service.</span></h2>
+                         <ul class="space-y-0.5 text-[7px] md:text-sm text-gray-800 reveal-up font-serif w-full">
+                            <li class="border-b border-gray-200 pb-0.5">Master of Ceremony</li>
+                            <li class="border-b border-gray-200 pb-0.5">Public Speaking Mentor</li>
                          </ul>
                     </div>
                     <div class="w-1/2 h-full grid grid-cols-2 md:grid-cols-3 gap-1 p-2 md:p-12 items-center">
@@ -144,12 +141,12 @@
                         <img src="https://image2url.com/r2/default/images/1769403155148-2b58caef-4494-4272-b716-99ef14b3b691.png" class="w-full h-full object-cover blur-sm">
                     </div>
                     <div class="relative z-10 w-full max-w-4xl text-center reveal-img">
-                        <h1 class="text-lg md:text-5xl font-serif text-white leading-snug font-light">
+                        <h1 class="text-base md:text-5xl font-serif text-white leading-snug font-light">
                             "Connecting People through <span class="italic font-bold">Voice.</span>"
                         </h1>
-                        <div class="flex justify-center gap-6 mt-3 text-white/80">
-                            <div class="text-center"><span class="block text-sm font-bold">CPS</span><span class="text-[7px] uppercase tracking-widest">Certified</span></div>
-                             <div class="text-center"><span class="block text-sm font-bold">2014</span><span class="text-[7px] uppercase tracking-widest">Since</span></div>
+                        <div class="flex justify-center gap-4 mt-2 text-white/80">
+                            <div class="text-center"><span class="block text-xs font-bold">CPS</span><span class="text-[6px] uppercase tracking-widest">Certified</span></div>
+                             <div class="text-center"><span class="block text-xs font-bold">2014</span><span class="text-[6px] uppercase tracking-widest">Since</span></div>
                         </div>
                     </div>
                 </div>
@@ -157,17 +154,17 @@
 
             <div class="slide bg-white relative">
                  <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-                     <h2 class="text-2xl md:text-4xl font-serif italic text-burgundy mb-2 reveal-up">Explore More</h2>
+                     <h2 class="text-xl md:text-4xl font-serif italic text-burgundy mb-2 reveal-up">Explore More</h2>
                      <div class="animate-bounce cursor-pointer p-2" onclick="scrollToContent()">
-                         <svg class="w-5 h-5 mx-auto text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                         <svg class="w-4 h-4 mx-auto text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                      </div>
                  </div>
             </div>
         </div>
         
-        <div class="absolute bottom-4 right-4 z-50 flex gap-1">
-            <button onclick="prevSlide()" class="p-1.5 border border-burgundy rounded-full hover:bg-burgundy hover:text-white transition text-[10px]">←</button>
-            <button onclick="nextSlide()" class="p-1.5 border border-burgundy rounded-full hover:bg-burgundy hover:text-white transition text-[10px]">→</button>
+        <div class="absolute bottom-2 right-2 z-50 flex gap-1">
+            <button onclick="prevSlide()" class="p-1 border border-burgundy rounded-full hover:bg-burgundy hover:text-white transition text-[8px]">←</button>
+            <button onclick="nextSlide()" class="p-1 border border-burgundy rounded-full hover:bg-burgundy hover:text-white transition text-[8px]">→</button>
         </div>
     </div>
 
@@ -189,7 +186,7 @@
             </div>
         </section>
 
-        <section id="mc" class="py-10 md:py-20 bg-burgundy text-white overflow-hidden relative">
+        <section id="mc" class="py-8 md:py-20 bg-burgundy text-white overflow-hidden relative">
             <div class="px-5 md:px-20 mb-4 md:mb-10 flex justify-between items-end scroll-section">
                 <div>
                     <h2 class="text-xl md:text-5xl font-serif font-bold">Master of Ceremony</h2>
@@ -197,46 +194,40 @@
                 </div>
             </div>
 
-            <div class="relative w-full overflow-hidden py-4 md:py-10">
-                <div class="flex animate-marquee hover:[animation-play-state:paused]">
-                    <div class="marquee-content px-2 md:px-4">
-                        <div class="w-32 h-44 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden rounded-sm">
-                            <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-                            <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">HUT MAS FM</p></div>
-                        </div>
-                        <div class="w-32 h-44 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden rounded-sm">
-                            <img src="https://image2url.com/r2/default/images/1769404486235-26b8c14c-0c69-43bd-94ff-60911ed9614b.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-                             <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Gathering</p></div>
-                        </div>
-                        <div class="w-32 h-44 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden rounded-sm">
-                            <img src="https://image2url.com/r2/default/images/1769404509038-8e86cf3b-a0ee-4fc2-8724-00aaa52dab89.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-                             <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Food & Mood</p></div>
-                        </div>
-                        <div class="w-32 h-44 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden rounded-sm">
-                            <img src="https://image2url.com/r2/default/images/1769404539447-ecea453d-970f-4441-8612-208f8709159c.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-                             <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Radio Elfara</p></div>
-                        </div>
-                    </div>
-                     <div class="marquee-content px-2 md:px-4">
-                        <div class="w-32 h-44 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden rounded-sm">
-                            <img src="https://image2url.com/r2/default/images/1769404575301-ac8fffbc-c43c-485d-b79a-66de92d8be34.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-                        </div>
-                        <div class="w-32 h-44 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden rounded-sm">
-                            <img src="https://image2url.com/r2/default/images/1769404600221-eb15e836-599e-4c69-abb2-1dbac0630048.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-                        </div>
-                        <div class="w-32 h-44 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden rounded-sm">
-                            <img src="https://image2url.com/r2/default/images/1769404629454-ff9b228d-3654-4741-b84b-b5ae1712c4e9.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-                        </div>
-                        <div class="w-32 h-44 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden rounded-sm">
-                            <img src="https://image2url.com/r2/default/images/1769404709549-dc482fb5-3e76-478c-961b-4f556aae1b19.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-                        </div>
-                    </div>
+            <div id="mc-scroller" class="flex overflow-x-auto gap-4 px-4 pb-4 no-scrollbar items-end" style="scroll-behavior: auto;">
+                <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-black/20 group overflow-hidden rounded-sm">
+                    <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                    <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">HUT MAS FM</p></div>
+                </div>
+                <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-black/20 group overflow-hidden rounded-sm">
+                    <img src="https://image2url.com/r2/default/images/1769404486235-26b8c14c-0c69-43bd-94ff-60911ed9614b.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                     <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Gathering</p></div>
+                </div>
+                <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-black/20 group overflow-hidden rounded-sm">
+                    <img src="https://image2url.com/r2/default/images/1769404509038-8e86cf3b-a0ee-4fc2-8724-00aaa52dab89.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                     <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Food & Mood</p></div>
+                </div>
+                <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-black/20 group overflow-hidden rounded-sm">
+                    <img src="https://image2url.com/r2/default/images/1769404539447-ecea453d-970f-4441-8612-208f8709159c.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                     <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Radio Elfara</p></div>
+                </div>
+                <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-black/20 group overflow-hidden rounded-sm">
+                    <img src="https://image2url.com/r2/default/images/1769404575301-ac8fffbc-c43c-485d-b79a-66de92d8be34.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                </div>
+                <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-black/20 group overflow-hidden rounded-sm">
+                    <img src="https://image2url.com/r2/default/images/1769404600221-eb15e836-599e-4c69-abb2-1dbac0630048.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                </div>
+                 <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-black/20 group overflow-hidden rounded-sm">
+                    <img src="https://image2url.com/r2/default/images/1769404629454-ff9b228d-3654-4741-b84b-b5ae1712c4e9.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                </div>
+                <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-black/20 group overflow-hidden rounded-sm">
+                    <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
                 </div>
             </div>
         </section>
 
         <section id="mentoring" class="py-10 md:py-20 bg-cream relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-5 md:px-20">
+            <div class="max-w-7xl mx-auto px-4 md:px-20">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-4 md:mb-10 scroll-section">
                     <div>
                         <span class="text-burgundy font-bold text-[9px] tracking-[0.3em] uppercase">Education</span>
@@ -244,44 +235,44 @@
                     </div>
                 </div>
 
-                <div class="relative w-full h-[350px] md:h-[700px] overflow-hidden rounded-sm scroll-section delay-100">
+                <div class="relative w-full h-[250px] md:h-[700px] overflow-hidden rounded-sm scroll-section delay-100">
                     <div class="flex transition-transform duration-700 ease-in-out h-full" id="mentoring-track">
                         
-                        <a href="https://www.instagram.com/reel/DTF5uvhEdDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-full md:w-1/3 flex-shrink-0 p-1 md:p-2 relative h-full group block cursor-pointer">
+                        <a href="https://www.instagram.com/reel/DTF5uvhEdDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer">
                             <div class="w-full h-full relative overflow-hidden rounded-sm">
                                 <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
                                     <source src="https://image2url.com/r2/default/videos/1769405263930-a1a20b88-c020-4458-93f5-088182529f4d.mp4" type="video/mp4">
                                 </video>
                                 <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition"></div>
                             </div>
-                            <div class="absolute top-4 left-4 bg-white px-2 py-1 text-[8px] font-bold tracking-widest text-burgundy shadow-md z-20">THURSINA IIBS</div>
+                            <div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">THURSINA</div>
                         </a>
 
-                        <a href="https://www.instagram.com/reel/C7VyKD1PzHD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-full md:w-1/3 flex-shrink-0 p-1 md:p-2 relative h-full group block cursor-pointer">
+                        <a href="https://www.instagram.com/reel/C7VyKD1PzHD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer">
                             <div class="w-full h-full relative overflow-hidden rounded-sm">
                                 <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
                                     <source src="https://image2url.com/r2/default/videos/1769405349851-134c311a-70b1-4de4-9ab4-dc023cfe2809.mp4" type="video/mp4">
                                 </video>
                             </div>
-                            <div class="absolute top-4 left-4 bg-white px-2 py-1 text-[8px] font-bold tracking-widest text-burgundy shadow-md z-20">MA NURUL HUDA</div>
+                            <div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">NURUL HUDA</div>
                         </a>
 
-                        <a href="https://www.instagram.com/reel/DKwpBt3z--K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-full md:w-1/3 flex-shrink-0 p-1 md:p-2 relative h-full group block cursor-pointer">
+                        <a href="https://www.instagram.com/reel/DKwpBt3z--K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer">
                             <div class="w-full h-full relative overflow-hidden rounded-sm">
                                 <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
                                     <source src="https://image2url.com/r2/default/videos/1769405802982-7d86fe8a-10ed-4bbe-8460-7155d3113dcb.mp4" type="video/mp4">
                                 </video>
                             </div>
-                            <div class="absolute top-4 left-4 bg-white px-2 py-1 text-[8px] font-bold tracking-widest text-burgundy shadow-md z-20">PUBLIC SPEAKING</div>
+                            <div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">PUBLIC SPEAKING</div>
                         </a>
 
-                         <a href="https://www.instagram.com/reel/DMaJwPTzZfY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-full md:w-1/3 flex-shrink-0 p-1 md:p-2 relative h-full group block cursor-pointer">
+                         <a href="https://www.instagram.com/reel/DMaJwPTzZfY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer">
                             <div class="w-full h-full relative overflow-hidden rounded-sm">
                                 <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
                                     <source src="https://image2url.com/r2/default/videos/1769407873903-1dfeb1a9-0a54-482b-9c8d-1e8507fbcbac.mp4" type="video/mp4">
                                 </video>
                             </div>
-                            <div class="absolute top-4 left-4 bg-white px-2 py-1 text-[8px] font-bold tracking-widest text-burgundy shadow-md z-20">CONTENT CREATOR</div>
+                            <div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">CREATOR</div>
                         </a>
 
                     </div>
@@ -329,19 +320,52 @@
         }
         startHeroTimer();
 
-        // --- 2. MENTORING CAROUSEL ---
+        // --- 2. MC SECTION: MANUAL + AUTO SCROLL ---
+        const mcScroller = document.getElementById('mc-scroller');
+        let mcScrollSpeed = 1; // Kecepatan scroll (makin besar makin cepat)
+        let isHovering = false;
+        let animationFrameId;
+
+        function autoScrollMC() {
+            if (!isHovering) {
+                if (mcScroller.scrollLeft >= (mcScroller.scrollWidth - mcScroller.clientWidth - 10)) {
+                    mcScroller.scrollLeft = 0; // Reset ke awal jika mentok
+                } else {
+                    mcScroller.scrollLeft += mcScrollSpeed;
+                }
+            }
+            animationFrameId = requestAnimationFrame(autoScrollMC);
+        }
+
+        // Jalankan Auto Scroll
+        autoScrollMC();
+
+        // Berhenti saat disentuh/hover (untuk scroll manual)
+        mcScroller.addEventListener('mouseenter', () => isHovering = true);
+        mcScroller.addEventListener('mouseleave', () => isHovering = false);
+        mcScroller.addEventListener('touchstart', () => isHovering = true);
+        mcScroller.addEventListener('touchend', () => {
+            setTimeout(() => isHovering = false, 2000); // Tunggu 2 detik baru jalan lagi
+        });
+
+
+        // --- 3. MENTORING CAROUSEL (FORCE 3 COLUMN) ---
         let mentoringIdx = 0;
         const mentoringTrack = document.getElementById('mentoring-track');
-        const mentoringItems = mentoringTrack.children.length; 
-        let itemsPerView = window.innerWidth < 768 ? 1 : 3; 
+        // Total items
+        const totalMentoringItems = mentoringTrack.children.length; 
+        // Selalu tampilkan 3 item sekaligus baik di HP maupun Desktop
+        const itemsPerView = 3; 
 
         function updateMentoring() {
+            // Karena width item CSSnya 33.33% (w-1/3), gesernya 33.33% per index
             const movePerc = mentoringIdx * (100 / itemsPerView);
             mentoringTrack.style.transform = `translateX(-${movePerc}%)`;
         }
 
         function nextMentoring() {
-            if (mentoringIdx >= mentoringItems - itemsPerView) {
+            // Cek batas
+            if (mentoringIdx >= totalMentoringItems - itemsPerView) {
                 mentoringIdx = 0;
             } else {
                 mentoringIdx++;
@@ -350,12 +374,7 @@
         }
         setInterval(nextMentoring, 3500);
 
-        window.addEventListener('resize', () => {
-            itemsPerView = window.innerWidth < 768 ? 1 : 3;
-            updateMentoring();
-        });
-
-        // --- 3. SCROLL REVEAL ---
+        // --- 4. SCROLL REVEAL ---
         function scrollToContent() {
             document.getElementById('about').scrollIntoView({behavior: 'smooth'});
         }
