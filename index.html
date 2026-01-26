@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Riza Kamila | Portfolio 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: '#4d0a0a', 
+                        cream: '#f8f8f8',
+                        black: '#1a1a1a',
+                        gold: '#C5A059'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* --- GLOBAL RESET --- */
+        body { 
+            background-color: #fff; 
+            margin: 0; 
+            overflow-x: hidden; 
+            overflow-y: auto; 
+        }
+        
+        /* --- SLIDER STYLES --- */
+        #hero-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-track {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+            will-change: transform;
+        }
+
+        .slide {
+            width: 25%;
+            height: 100%;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            background: white;
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal-up { opacity: 0; transform: translateY(40px); transition: 0.8s ease-out; }
+        .reveal-img { opacity: 0; transform: scale(1.1); transition: 1s ease-out; }
+        .slide.active .reveal-up { opacity: 1; transform: translateY(0); }
+        .slide.active .reveal-img { opacity: 1; transform: scale(1); }
+        
+        /* Scroll Reveal */
+        .scroll-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        .scroll-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Marquee */
+        .marquee-content {
+            display: flex;
+            gap: 1rem;
+            width: max-content;
+        }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-5 md:px-10 md:py-6 transition-all duration-300 mix-blend-difference text-white">
+        <div class="font-serif font-bold text-lg md:text-xl tracking-tight">RIZA KAMILA</div>
+        <div class="hidden md:flex gap-6 text-[10px] tracking-[0.2em] font-bold uppercase">
+            <a href="#about" class="hover:text-gold transition">About</a>
+            <a href="#mc" class="hover:text-gold transition">MC</a>
+            <a href="#mentoring" class="hover:text-gold transition">Mentoring</a>
+        </div>
+        <a href="https://wa.link/7sg3i5" class="px-5 py-2 border border-white/50 rounded-full text-[10px] font-bold tracking-widest hover:bg-white hover:text-black transition">
+            CONTACT
+        </a>
+    </nav>
+
+    <div id="hero-container">
+        <div class="slider-track" id="track">
+
+            <div class="slide active">
+                <div class="w-full h-full flex flex-col md:flex-row">
+                    <div class="order-2 md:order-1 w-full md:w-5/12 h-[40%] md:h-full flex flex-col justify-center px-6 md:px-16 bg-white relative z-20">
+                        <div class="reveal-up">
+                            <span class="text-[10px] font-bold tracking-[0.3em] text-burgundy block mb-2">PORTFOLIO 2026</span>
+                            <h1 class="text-[3.5rem] md:text-[6rem] leading-[0.9] font-serif font-bold text-black mb-4">
+                                RIZA <br> <span class="text-burgundy italic font-medium">Kamila.</span>
+                            </h1>
+                            <p class="text-xs md:text-sm text-gray-500 leading-relaxed max-w-xs mb-6 border-l-2 border-burgundy pl-3">
+                                Professional MC & Public Speaking Mentor based in Malang.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 w-full md:w-7/12 h-[60%] md:h-full relative overflow-hidden bg-cream">
+                        <img src="https://image2url.com/r2/default/images/1769402854346-2b408723-3bee-4b0d-9e03-38206974040e.png" class="w-full h-full object-cover object-top reveal-img" alt="Cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide bg-[#fafafa]">
+                <div class="w-full h-full flex flex-col md:flex-row p-6 md:p-0">
+                    <div class="w-full md:w-1/3 h-[30%] md:h-full flex flex-col justify-center px-2 md:px-12 relative z-20 order-1">
+                         <span class="text-burgundy text-[10px] font-bold tracking-[0.4em] mb-4 block reveal-up">EXPERTISE</span>
+                         <h2 class="text-3xl md:text-5xl font-serif font-bold mb-4 reveal-up leading-tight">Professional <br> <span class="italic text-gray-400 font-light">Service.</span></h2>
+                         <ul class="space-y-4 text-xs md:text-sm text-gray-800 reveal-up font-serif">
+                            <li class="border-b pb-2 flex justify-between"><span>Master of Ceremony</span> <span class="text-burgundy">10+ Years</span></li>
+                            <li class="border-b pb-2 flex justify-between"><span>Public Speaking Mentor</span> <span class="text-burgundy">Certified</span></li>
+                            <li class="border-b pb-2 flex justify-between"><span>Content Planner</span> <span class="text-burgundy">Strategic</span></li>
+                         </ul>
+                    </div>
+                    <div class="w-full md:w-2/3 h-[65%] md:h-full grid grid-cols-3 gap-2 md:gap-4 order-2 md:pr-12 md:py-12">
+                        <div class="h-full bg-gray-200 overflow-hidden group reveal-img"><img src="https://image2url.com/r2/default/images/1769403155148-2b58caef-4494-4272-b716-99ef14b3b691.png" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-700"></div>
+                        <div class="h-full bg-gray-200 overflow-hidden md:mt-12 group reveal-img"><img src="https://image2url.com/r2/default/images/1769403383760-d501fe68-36d8-4ebc-9a78-910dddaedd38.png" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-700"></div>
+                        <div class="h-full bg-gray-200 overflow-hidden md:mt-24 group reveal-img"><img src="https://image2url.com/r2/default/images/1769403421792-b34eae61-f19e-4930-b10e-df2eceaa9603.png" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-700"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="w-full h-full relative flex items-center justify-center bg-burgundy">
+                    <div class="absolute inset-0 z-0 opacity-30 mix-blend-screen">
+                        <img src="https://image2url.com/r2/default/images/1769403155148-2b58caef-4494-4272-b716-99ef14b3b691.png" class="w-full h-full object-cover blur-sm">
+                    </div>
+                    <div class="relative z-10 w-full max-w-4xl px-8 text-center border-y border-white/20 py-12 md:py-20 reveal-img">
+                        <h1 class="text-3xl md:text-5xl font-serif text-white leading-tight font-light mb-8">
+                            "A dynamic professional passionate about <span class="italic font-bold">Connecting People</span> through voice."
+                        </h1>
+                        <div class="flex justify-center gap-12 text-white/80 mt-8">
+                            <div class="text-center"><span class="block text-2xl font-serif font-bold">CPS</span><span class="text-[9px] uppercase tracking-widest">Certified</span></div>
+                             <div class="text-center"><span class="block text-2xl font-serif font-bold">2014</span><span class="text-[9px] uppercase tracking-widest">Since</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide bg-white relative">
+                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                     <h2 class="text-4xl font-serif italic text-burgundy mb-4 reveal-up">Scroll to Explore</h2>
+                     <div class="animate-bounce cursor-pointer" onclick="scrollToContent()">
+                         <svg class="w-6 h-6 mx-auto text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                     </div>
+                 </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 right-10 z-50 flex gap-2">
+            <button onclick="prevSlide()" class="p-3 border border-burgundy rounded-full hover:bg-burgundy hover:text-white transition">←</button>
+            <button onclick="nextSlide()" class="p-3 border border-burgundy rounded-full hover:bg-burgundy hover:text-white transition">→</button>
+        </div>
+    </div>
+
+
+    <div id="about" class="bg-white relative z-10 w-full overflow-hidden">
+        
+        <section class="min-h-[80vh] flex flex-col md:flex-row items-center justify-center p-8 md:p-20 relative">
+            <div class="absolute top-20 right-0 text-[8rem] md:text-[15rem] text-gray-50 font-bold -z-10 leading-none select-none scroll-section">PROFILE</div>
+            <div class="w-full md:w-1/2 scroll-section">
+                <h2 class="text-4xl md:text-6xl font-serif font-bold text-burgundy mb-6 leading-none">Riza <br>Kamila</h2>
+                <p class="text-sm md:text-base text-gray-600 leading-relaxed max-w-md border-l-4 border-burgundy pl-4">
+                    Lulusan Manajemen SDM Institut Teknologi dan Bisnis ASIA Malang yang memiliki passion kuat di dunia <strong>Public Speaking</strong> dan <strong>Marketing</strong>. Berpengalaman di dunia broadcast radio sejak 2014.
+                </p>
+            </div>
+            <div class="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center scroll-section delay-200">
+                <div class="relative w-72 h-96 bg-gray-200 shadow-2xl rotate-2 hover:rotate-0 transition duration-700">
+                    <img src="https://image2url.com/r2/default/images/1769403823556-15afd702-737f-4046-8cfe-af0444193b64.png" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <section id="mc" class="py-20 bg-burgundy text-white overflow-hidden relative">
+            <div class="px-6 md:px-20 mb-10 flex justify-between items-end scroll-section">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold">Master of Ceremony</h2>
+                    <p class="text-xs text-white/70 mt-2 tracking-widest uppercase">Formal • Wedding • Event • Gathering</p>
+                </div>
+                <div class="text-right hidden md:block">
+                    <p class="text-[10px] text-white/50">CLIENTS & EVENTS</p>
+                    <p class="text-xl font-serif italic text-white">Since 2014</p>
+                </div>
+            </div>
+
+            <div class="relative w-full overflow-hidden py-10">
+                <div class="flex animate-marquee hover:[animation-play-state:paused]">
+                    <div class="marquee-content px-4">
+                        <div class="w-64 h-80 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden">
+                            <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                            <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-xs font-bold text-white uppercase">HUT MAS FM</p></div>
+                        </div>
+                        <div class="w-64 h-80 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden">
+                            <img src="https://image2url.com/r2/default/images/1769404486235-26b8c14c-0c69-43bd-94ff-60911ed9614b.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                            <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-xs font-bold text-white uppercase">Gathering Distributor</p></div>
+                        </div>
+                        <div class="w-64 h-80 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden">
+                            <img src="https://image2url.com/r2/default/images/1769404509038-8e86cf3b-a0ee-4fc2-8724-00aaa52dab89.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                            <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-xs font-bold text-white uppercase">Food & Mood</p></div>
+                        </div>
+                        <div class="w-64 h-80 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden">
+                            <img src="https://image2url.com/r2/default/images/1769404539447-ecea453d-970f-4441-8612-208f8709159c.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                            <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-xs font-bold text-white uppercase">Radio Elfara</p></div>
+                        </div>
+                    </div>
+                    <div class="marquee-content px-4">
+                        <div class="w-64 h-80 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden">
+                            <img src="https://image2url.com/r2/default/images/1769404575301-ac8fffbc-c43c-485d-b79a-66de92d8be34.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                             <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-xs font-bold text-white uppercase">HUT MAS FM</p></div>
+                        </div>
+                        <div class="w-64 h-80 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden">
+                            <img src="https://image2url.com/r2/default/images/1769404600221-eb15e836-599e-4c69-abb2-1dbac0630048.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                             <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-xs font-bold text-white uppercase">Gathering Distributor</p></div>
+                        </div>
+                        <div class="w-64 h-80 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden">
+                            <img src="https://image2url.com/r2/default/images/1769404629454-ff9b228d-3654-4741-b84b-b5ae1712c4e9.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                             <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-xs font-bold text-white uppercase">Food & Mood</p></div>
+                        </div>
+                        <div class="w-64 h-80 md:w-80 md:h-96 relative bg-black/20 flex-shrink-0 group overflow-hidden">
+                            <img src="https://image2url.com/r2/default/images/1769404709549-dc482fb5-3e76-478c-961b-4f556aae1b19.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+                             <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-burgundy to-transparent w-full"><p class="text-xs font-bold text-white uppercase">Radio Elfara</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mentoring" class="py-20 bg-cream relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 md:px-20">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-10 scroll-section">
+                    <div>
+                        <span class="text-burgundy font-bold text-xs tracking-[0.3em] uppercase">Education</span>
+                        <h2 class="text-3xl md:text-5xl font-serif font-bold mt-2">Mentoring & <br>Teaching.</h2>
+                    </div>
+                    <div class="mt-4 md:mt-0 max-w-sm">
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Sneak peek kegiatan. Video 9:16 diputar otomatis. Klik untuk versi lengkap di Instagram.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative w-full h-[600px] md:h-[700px] overflow-hidden rounded-sm scroll-section delay-100">
+                    <div class="flex transition-transform duration-700 ease-in-out h-full" id="mentoring-track">
+                        
+                        <a href="https://www.instagram.com/reel/DTF5uvhEdDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-full md:w-1/3 flex-shrink-0 p-2 relative h-full group block cursor-pointer">
+                            <div class="w-full h-full relative overflow-hidden">
+                                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+                                    <source src="https://image2url.com/r2/default/videos/1769405263930-a1a20b88-c020-4458-93f5-088182529f4d.mp4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition"></div>
+                            </div>
+                            <div class="absolute bottom-6 right-6 z-20">
+                                <div class="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 animate-pulse">
+                                    <svg class="w-4 h-4 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                            </div>
+                            <div class="absolute top-6 left-6 bg-white px-4 py-2 text-xs font-bold tracking-widest text-burgundy shadow-md z-20">THURSINA IIBS</div>
+                        </a>
+
+                        <a href="https://www.instagram.com/reel/C7VyKD1PzHD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-full md:w-1/3 flex-shrink-0 p-2 relative h-full group block cursor-pointer">
+                            <div class="w-full h-full relative overflow-hidden">
+                                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+                                    <source src="https://image2url.com/r2/default/videos/1769405349851-134c311a-70b1-4de4-9ab4-dc023cfe2809.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="absolute top-6 left-6 bg-white px-4 py-2 text-xs font-bold tracking-widest text-burgundy shadow-md z-20">MA NURUL HUDA</div>
+                        </a>
+
+                        <a href="https://www.instagram.com/reel/DKwpBt3z--K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-full md:w-1/3 flex-shrink-0 p-2 relative h-full group block cursor-pointer">
+                            <div class="w-full h-full relative overflow-hidden">
+                                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+                                    <source src="https://image2url.com/r2/default/videos/1769405802982-7d86fe8a-10ed-4bbe-8460-7155d3113dcb.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="absolute top-6 left-6 bg-white px-4 py-2 text-xs font-bold tracking-widest text-burgundy shadow-md z-20">PUBLIC SPEAKING</div>
+                        </a>
+
+                         <a href="https://www.instagram.com/reel/DMaJwPTzZfY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-full md:w-1/3 flex-shrink-0 p-2 relative h-full group block cursor-pointer">
+                            <div class="w-full h-full relative overflow-hidden">
+                                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+                                    <source src="https://image2url.com/r2/default/videos/1769407873903-1dfeb1a9-0a54-482b-9c8d-1e8507fbcbac.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="absolute top-6 left-6 bg-white px-4 py-2 text-xs font-bold tracking-widest text-burgundy shadow-md z-20">CONTENT CREATOR</div>
+                        </a>
+
+                    </div>
+                </div>
+                
+                <div class="flex justify-center mt-6 gap-2">
+                    <div class="w-2 h-2 rounded-full bg-burgundy opacity-100"></div>
+                    <div class="w-2 h-2 rounded-full bg-burgundy opacity-50"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-white py-20 text-center border-t border-gray-200 scroll-section">
+            <h3 class="text-xs font-bold tracking-[0.4em] text-gray-400 mb-6 uppercase">Collaboration</h3>
+            <h1 class="text-3xl md:text-5xl font-serif font-bold text-burgundy mb-8">Let's Work Together.</h1>
+            <a href="https://wa.link/v8l6mq" class="inline-block border-2 border-burgundy px-10 py-4 text-burgundy font-bold text-xs tracking-widest hover:bg-burgundy hover:text-white transition duration-300">
+                WHATSAPP ME
+            </a>
+            <div class="mt-12 text-[10px] text-gray-400 tracking-wider">
+                © 2025 RIZA IMROATUL KAMILA • ALL RIGHTS RESERVED
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // --- 1. HERO SLIDER ---
+        let currentHero = 0;
+        const totalHero = 4;
+        const trackHero = document.getElementById('track');
+        const slides = document.querySelectorAll('.slide');
+        let heroInterval;
+
+        function updateHero() {
+            trackHero.style.transform = `translateX(-${currentHero * 25}%)`;
+            slides.forEach((s, i) => s.classList.toggle('active', i === currentHero));
+        }
+        function nextSlide() { currentHero = (currentHero + 1) % totalHero; updateHero(); }
+        function prevSlide() { currentHero = (currentHero - 1 + totalHero) % totalHero; updateHero(); }
+
+        function startHeroTimer() {
+            heroInterval = setInterval(() => {
+                if(window.scrollY < 200) nextSlide();
+            }, 5000);
+        }
+        startHeroTimer();
+
+        // --- 2. MENTORING CAROUSEL (REELS 3-COLUMN) ---
+        let mentoringIdx = 0;
+        const mentoringTrack = document.getElementById('mentoring-track');
+        const mentoringItems = mentoringTrack.children.length; 
+        // NOTE: Di Desktop jadi 3 kolom (itemsPerView = 3)
+        let itemsPerView = window.innerWidth < 768 ? 1 : 3; 
+
+        function updateMentoring() {
+            const movePerc = mentoringIdx * (100 / itemsPerView);
+            mentoringTrack.style.transform = `translateX(-${movePerc}%)`;
+        }
+
+        function nextMentoring() {
+            // Karena 3 kolom, kita kurangi threshold-nya
+            if (mentoringIdx >= mentoringItems - itemsPerView) {
+                mentoringIdx = 0;
+            } else {
+                mentoringIdx++;
+            }
+            updateMentoring();
+        }
+        setInterval(nextMentoring, 3500);
+
+        window.addEventListener('resize', () => {
+            itemsPerView = window.innerWidth < 768 ? 1 : 3;
+            updateMentoring();
+        });
+
+        // --- 3. SCROLL REVEAL & NAVBAR ---
+        function scrollToContent() {
+            document.getElementById('about').scrollIntoView({behavior: 'smooth'});
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-section').forEach(el => observer.observe(el));
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > window.innerHeight - 50) {
+                nav.classList.remove('mix-blend-difference', 'text-white');
+                nav.classList.add('bg-white', 'text-black', 'shadow-sm');
+            } else {
+                nav.classList.add('mix-blend-difference', 'text-white');
+                nav.classList.remove('bg-white', 'text-black', 'shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
