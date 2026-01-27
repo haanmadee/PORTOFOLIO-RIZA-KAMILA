@@ -6,6 +6,7 @@
     <title>Riza Kamila | Portfolio 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
         tailwind.config = {
@@ -48,6 +49,151 @@
         .slide.active .reveal-img { opacity: 1; transform: scale(1); }
         .scroll-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .scroll-section.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- CSS PRICING FIXED (NO OPACITY 0) --- */
+        :root {
+            --p-primary: #4d0a0a;
+            --p-white: #ffffff;
+            --p-text-dark: #1f2937;
+            --p-gold: #C5A059;
+        }
+
+        @keyframes pulseGold {
+            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); transform: translateX(50%) scale(1); }
+            70% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); transform: translateX(50%) scale(1.05); }
+            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); transform: translateX(50%) scale(1); }
+        }
+        @keyframes shine {
+            0% { left: -100%; opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { left: 100%; opacity: 0; }
+        }
+
+        .pricing-row {
+            display: flex;
+            flex-direction: row; /* PASTI KANAN KIRI */
+            justify-content: center;
+            align-items: stretch;
+            gap: 8px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        
+        .pricing-card {
+            width: 50%; /* Setengah layar */
+            border-radius: 12px;
+            padding: 15px 8px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            opacity: 1; /* FIXED: Langsung muncul */
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* STYLE ONLINE */
+        .card-online {
+            background: var(--p-white);
+            border: 1px solid var(--p-primary);
+            color: var(--p-text-dark);
+        }
+
+        /* STYLE OFFLINE */
+        .card-offline {
+            background: var(--p-primary);
+            border: 1px solid var(--p-primary);
+            color: var(--p-white);
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        /* TYPOGRAPHY MICRO (UTK LAYAR KECIL) */
+        .p-title {
+            font-size: 0.7rem; 
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+            line-height: 1.1;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .p-subtitle {
+            font-size: 0.5rem; 
+            opacity: 0.8;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .p-price {
+            font-size: 1.1rem; 
+            font-weight: 800;
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+            font-family: 'Playfair Display', serif;
+        }
+        .card-offline .p-price { border-bottom: 1px dashed rgba(255,255,255,0.3); }
+        .p-price span { font-size: 0.6rem; font-weight: 500; font-family: 'Montserrat', sans-serif; }
+
+        .p-features { list-style: none; margin-bottom: 10px; flex-grow: 1; }
+        .p-features li {
+            font-size: 0.5rem; /* Font super kecil agar muat */
+            margin-bottom: 4px;
+            line-height: 1.2;
+            display: flex;
+            align-items: flex-start;
+        }
+        .p-features li i { margin-right: 3px; font-size: 0.55rem; margin-top: 1px; flex-shrink: 0; }
+
+        .p-btn {
+            display: block;
+            width: 100%;
+            padding: 8px 0;
+            border-radius: 50px;
+            font-size: 0.6rem; 
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .p-btn:active { transform: scale(0.95); }
+
+        .card-online .p-btn { background: var(--p-primary); color: var(--p-white); }
+        .card-offline .p-btn { background: var(--p-white); color: var(--p-primary); }
+        
+        .card-offline .p-btn::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(226, 226, 226, 0.4) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg); animation: shine 3s infinite;
+        }
+
+        .p-badge {
+            position: absolute; top: -8px; right: 50%; transform: translateX(50%);
+            background: var(--p-gold); color: #000;
+            font-size: 0.45rem; font-weight: 800;
+            padding: 2px 8px; border-radius: 20px;
+            white-space: nowrap; z-index: 10;
+            animation: pulseGold 2s infinite;
+            letter-spacing: 0.5px;
+        }
+        
+        @media (min-width: 768px) {
+            .pricing-card { padding: 25px; }
+            .p-title { font-size: 1.2rem; }
+            .p-subtitle { font-size: 0.8rem; }
+            .p-price { font-size: 2rem; margin-bottom: 20px; }
+            .p-features li { font-size: 0.85rem; margin-bottom: 10px; }
+            .p-features li i { font-size: 1rem; margin-right: 10px; }
+            .p-btn { font-size: 0.9rem; padding: 15px 0; }
+            .p-badge { font-size: 0.7rem; padding: 5px 15px; top: -12px; }
+        }
     </style>
 </head>
 <body class="text-gray-900">
@@ -183,13 +329,13 @@
                     <div class="flex flex-col items-center md:items-start">
                         <div class="flex items-center gap-2">
                             <span class="text-[9px] md:text-sm text-white/50 line-through">Rp 122.500</span>
-                            <span class="bg-red-600 text-white text-[7px] md:text-[10px] font-bold px-3 py-0.5 rounded whitespace-nowrap animate-pulse border border-red-400">HEMAT 60%</span>
+                            <span class="bg-red-600 text-white text-[7px] md:text-[10px] font-bold px-4 py-0.5 rounded whitespace-nowrap tracking-wider animate-pulse border border-red-400">HEMAT 60%</span>
                         </div>
                         <div class="text-2xl md:text-4xl font-serif font-bold text-white leading-none mt-0.5">Rp 49.000</div>
                     </div>
                 </div>
 
-                <a href="https://lynk.id/rizakamilaa/r9lwz0g281wl" target="_blank" class="w-full md:w-auto bg-white text-burgundy text-center px-6 py-2 md:py-3 text-[8px] md:text-sm font-bold tracking-[0.2em] rounded-full hover:bg-gold hover:text-white transition duration-300 shadow-xl active:scale-95">
+                <a href="https://lynk.id/rizakamilaa/r9lwz0g281wl" target="_blank" class="w-full md:w-auto bg-white text-burgundy text-center px-5 py-2 md:py-3 text-[7px] md:text-sm font-bold tracking-[0.2em] rounded-full hover:bg-gold hover:text-white transition duration-300 shadow-xl active:scale-95">
                     AMBIL PROMO SEKARANG →
                 </a>
             </div>
@@ -197,8 +343,50 @@
         </section>
     </div>
 
+    <div class="bg-white py-8 relative z-20">
+        <div class="text-center mb-6 scroll-section">
+            <span class="text-burgundy font-bold text-[8px] tracking-[0.3em] uppercase">Services</span>
+            <h2 class="text-xl font-serif font-bold mt-1 text-black">Pilih Paket Belajar</h2>
+        </div>
 
-    <section id="mc" class="py-8 md:py-20 bg-white text-burgundy overflow-hidden relative">
+        <div class="pricing-row scroll-section delay-100">
+            <div class="pricing-card card-online">
+                <div>
+                    <h3 class="p-title">Private<br>Speaking</h3>
+                    <div class="p-subtitle">Online Zoom • 60 Menit</div>
+                    <div class="p-price">195K <span>/sesi</span></div>
+                    
+                    <ul class="p-features">
+                        <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Bicara Tenang & Pede</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Olah Intonasi</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Teknik Opening</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Prepare Pitching</li>
+                        <li><i class="fas fa-users" style="color:var(--p-primary)"></i> Free: Komunitas</li>
+                    </ul>
+                </div>
+                <a href="https://lynk.id/rizakamilaa/kl9ng1gk6276" class="p-btn" target="_blank">Daftar Online</a>
+            </div>
+
+            <div class="pricing-card card-offline">
+                <div class="p-badge">BEST CHOICE</div>
+                <div>
+                    <h3 class="p-title">Private<br>MC Offline</h3>
+                    <div class="p-subtitle">Malang Area • 60 Menit</div>
+                    <div class="p-price">250K <span>/sesi</span></div>
+                    
+                    <ul class="p-features">
+                        <li><i class="fas fa-microphone-alt"></i> <strong>Praktik Langsung</strong></li>
+                        <li><i class="fas fa-file-alt"></i> Bedah Script MC</li>
+                        <li><i class="fas fa-music"></i> Senam Vokal</li>
+                        <li><i class="fas fa-walking"></i> Body Language</li>
+                        <li><i class="fas fa-id-card"></i> Personal Branding</li>
+                    </ul>
+                </div>
+                <a href="https://lynk.id/rizakamilaa/aZmbpOD" class="p-btn" target="_blank">Booking Offline</a>
+            </div>
+        </div>
+    </div>
+    <section id="mc" class="py-8 md:py-20 bg-white text-burgundy overflow-hidden relative border-t border-gray-100">
         <div class="px-5 md:px-20 mb-4 md:mb-10 flex justify-between items-end scroll-section">
             <div>
                 <h2 class="text-xl md:text-5xl font-serif font-bold">Master of Ceremony</h2>
@@ -299,7 +487,7 @@
     <footer class="bg-white py-10 md:py-20 text-center border-t border-gray-200 scroll-section px-4">
         <h3 class="text-[9px] font-bold tracking-[0.3em] text-gray-400 mb-4 uppercase">Collaboration</h3>
         <h1 class="text-2xl md:text-5xl font-serif font-bold text-burgundy mb-6">Let's Work Together.</h1>
-        <a href="https://wa.link/v8l6mq" class="inline-block border border-burgundy px-8 py-3 text-burgundy font-bold text-[9px] tracking-widest hover:bg-burgundy hover:text-white transition duration-300 rounded-sm">
+        <a href="https://wa.link/v8l6mq" class="inline-block border border-burgundy px-8 py-3 text-burgundy font-bold text-[9px] tracking-widest hover:bg-burgundy hover:text-white transition duration-300 rounded-sm" target="_blank">
             WHATSAPP ME
         </a>
         <div class="mt-8 text-[8px] text-gray-400 tracking-wider">
