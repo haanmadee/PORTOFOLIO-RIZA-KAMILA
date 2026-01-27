@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Riza Kamila | Portfolio 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
@@ -32,17 +32,11 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        #hero-container {
-            width: 100vw;
-            height: 200px; 
-            position: relative;
-            overflow: hidden;
-        }
+        /* HERO & ANIMATIONS */
+        #hero-container { width: 100vw; height: 200px; position: relative; overflow: hidden; }
         @media (min-width: 768px) { #hero-container { height: 90vh; } }
-
         .slider-track { display: flex; width: 400%; height: 100%; transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); }
         .slide { width: 25%; height: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: white; }
-
         .reveal-up { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         .reveal-img { opacity: 0; transform: scale(1.1); transition: 1s ease-out; }
         .slide.active .reveal-up { opacity: 1; transform: translateY(0); }
@@ -50,140 +44,68 @@
         .scroll-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .scroll-section.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- CSS PRICING FIXED (NO OPACITY 0) --- */
+        /* --- CSS PRICING CARD --- */
         :root {
-            --p-primary: #4d0a0a;
-            --p-white: #ffffff;
-            --p-text-dark: #1f2937;
-            --p-gold: #C5A059;
+            --p-primary: #4d0a0a; --p-white: #ffffff; --p-text-dark: #1f2937; --p-gold: #C5A059;
+            /* Variables for Catalog Grid */
+            --bg-card-content: #fff5f6; --btn-color: #800020; --btn-shadow-color: #4a0012; 
+            --price-color: #9c0c28; --border-card: #a64d5e; 
+            --text-main: #4a0404; --text-secondary: #8c5660; 
         }
 
-        @keyframes pulseGold {
-            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); transform: translateX(50%) scale(1); }
-            70% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); transform: translateX(50%) scale(1.05); }
-            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); transform: translateX(50%) scale(1); }
-        }
-        @keyframes shine {
-            0% { left: -100%; opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { left: 100%; opacity: 0; }
-        }
-
-        .pricing-row {
-            display: flex;
-            flex-direction: row; /* PASTI KANAN KIRI */
-            justify-content: center;
-            align-items: stretch;
-            gap: 8px;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 10px;
-        }
-        
-        .pricing-card {
-            width: 50%; /* Setengah layar */
-            border-radius: 12px;
-            padding: 15px 8px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            opacity: 1; /* FIXED: Langsung muncul */
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* STYLE ONLINE */
-        .card-online {
-            background: var(--p-white);
-            border: 1px solid var(--p-primary);
-            color: var(--p-text-dark);
-        }
-
-        /* STYLE OFFLINE */
-        .card-offline {
-            background: var(--p-primary);
-            border: 1px solid var(--p-primary);
-            color: var(--p-white);
-            transform: scale(1.02);
-            z-index: 10;
-        }
-
-        /* TYPOGRAPHY MICRO (UTK LAYAR KECIL) */
-        .p-title {
-            font-size: 0.7rem; 
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
-            line-height: 1.1;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .p-subtitle {
-            font-size: 0.5rem; 
-            opacity: 0.8;
-            margin-bottom: 8px;
-            font-style: italic;
-        }
-
-        .p-price {
-            font-size: 1.1rem; 
-            font-weight: 800;
-            margin-bottom: 8px;
-            padding-bottom: 5px;
-            border-bottom: 1px dashed rgba(0,0,0,0.1);
-            font-family: 'Playfair Display', serif;
-        }
+        /* PRICING STYLES */
+        .pricing-row { display: flex; flex-direction: row; justify-content: center; align-items: stretch; gap: 8px; max-width: 900px; margin: 0 auto; padding: 0 10px; }
+        .pricing-card { width: 50%; border-radius: 12px; padding: 15px 8px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.08); opacity: 1; font-family: 'Montserrat', sans-serif; }
+        .card-online { background: var(--p-white); border: 1px solid var(--p-primary); color: var(--p-text-dark); }
+        .card-offline { background: var(--p-primary); border: 1px solid var(--p-primary); color: var(--p-white); transform: scale(1.02); z-index: 10; }
+        .p-title { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; line-height: 1.1; font-family: 'Playfair Display', serif; }
+        .p-subtitle { font-size: 0.5rem; opacity: 0.8; margin-bottom: 8px; font-style: italic; }
+        .p-price { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px dashed rgba(0,0,0,0.1); font-family: 'Playfair Display', serif; }
         .card-offline .p-price { border-bottom: 1px dashed rgba(255,255,255,0.3); }
         .p-price span { font-size: 0.6rem; font-weight: 500; font-family: 'Montserrat', sans-serif; }
-
         .p-features { list-style: none; margin-bottom: 10px; flex-grow: 1; }
-        .p-features li {
-            font-size: 0.5rem; /* Font super kecil agar muat */
-            margin-bottom: 4px;
-            line-height: 1.2;
-            display: flex;
-            align-items: flex-start;
-        }
+        .p-features li { font-size: 0.5rem; margin-bottom: 4px; line-height: 1.2; display: flex; align-items: flex-start; }
         .p-features li i { margin-right: 3px; font-size: 0.55rem; margin-top: 1px; flex-shrink: 0; }
-
-        .p-btn {
-            display: block;
-            width: 100%;
-            padding: 8px 0;
-            border-radius: 50px;
-            font-size: 0.6rem; 
-            font-weight: 700;
-            text-align: center;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.2s;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        .p-btn:active { transform: scale(0.95); }
-
+        .p-btn { display: block; width: 100%; padding: 8px 0; border-radius: 50px; font-size: 0.6rem; font-weight: 700; text-align: center; text-decoration: none; position: relative; overflow: hidden; transition: transform 0.2s; letter-spacing: 0.5px; text-transform: uppercase; }
         .card-online .p-btn { background: var(--p-primary); color: var(--p-white); }
         .card-offline .p-btn { background: var(--p-white); color: var(--p-primary); }
-        
-        .card-offline .p-btn::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(226, 226, 226, 0.4) 50%, rgba(255,255,255,0) 100%);
-            transform: skewX(-25deg); animation: shine 3s infinite;
-        }
+        .p-badge { position: absolute; top: -8px; right: 50%; transform: translateX(50%); background: var(--p-gold); color: #000; font-size: 0.45rem; font-weight: 800; padding: 2px 8px; border-radius: 20px; white-space: nowrap; z-index: 10; animation: pulseGold 2s infinite; letter-spacing: 0.5px; }
 
-        .p-badge {
-            position: absolute; top: -8px; right: 50%; transform: translateX(50%);
-            background: var(--p-gold); color: #000;
-            font-size: 0.45rem; font-weight: 800;
-            padding: 2px 8px; border-radius: 20px;
-            white-space: nowrap; z-index: 10;
-            animation: pulseGold 2s infinite;
-            letter-spacing: 0.5px;
+        /* --- CSS CATALOG GRID (UPDATED: RECTANGULAR IMAGE) --- */
+        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; max-width: 900px; margin: 0 auto; padding: 0 15px; }
+        .product-card { display: flex; flex-direction: column; background: transparent; border: none; }
+        
+        /* UBAHAN PENTING DISINI: padding-top 55% (Persegi Panjang) */
+        .card-image-wrapper { 
+            position: relative; 
+            width: 100%; 
+            padding-top: 55%; /* Dibuat 55% agar pendek (Landscape) */
+            margin-bottom: -15px; /* Margin disesuaikan agar overlap cantik */
+            z-index: 2; 
         }
         
+        /* UBAHAN PENTING DISINI: object-fit: cover */
+        .card-image { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            width: 100%; height: 100%; 
+            object-fit: cover; /* Agar gambar full mengisi kotak persegi panjang */
+            border-radius: 8px; /* Sedikit rounded di gambar */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Shadow biar pop-up */
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        
+        .product-card:hover .card-image { transform: translate(-50%, -50%) scale(1.05) rotate(-1deg); }
+        .card-content { background: var(--bg-card-content); padding: 20px 12px 14px 12px; border-radius: 16px; box-shadow: 0 4px 0 var(--border-card); border: 2px solid var(--border-card); display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; z-index: 1; text-align: left; transition: transform 0.2s ease; font-family: 'Quicksand', sans-serif; }
+        .product-card:hover .card-content { transform: translateY(-2px); }
+        .product-name { font-size: 0.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; line-height: 1.3; height: 2.6em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .price-container-grid { margin-bottom: 12px; display: flex; flex-direction: column; align-items: flex-start; }
+        .original-price-grid { font-size: 0.65rem; color: var(--text-secondary); text-decoration: line-through; font-weight: 500; margin-bottom: 2px; }
+        .discount-price-grid { font-size: 0.9rem; color: var(--price-color); font-weight: 800; }
+        .btn-minimal { display: block; width: 100%; padding: 8px 0; text-align: center; text-decoration: none; font-size: 0.75rem; font-weight: 700; border-radius: 12px; transition: all 0.2s ease; background-color: var(--btn-color); color: #fff0f5; border: none; box-shadow: 0 4px 0 var(--btn-shadow-color); margin-bottom: 4px; }
+        .btn-minimal:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--btn-shadow-color); background-color: #9c0c28; }
+        .btn-minimal:active { transform: translateY(4px); box-shadow: 0 0 0 var(--btn-shadow-color); }
+
+        /* Media Query Desktop */
         @media (min-width: 768px) {
             .pricing-card { padding: 25px; }
             .p-title { font-size: 1.2rem; }
@@ -193,6 +115,14 @@
             .p-features li i { font-size: 1rem; margin-right: 10px; }
             .p-btn { font-size: 0.9rem; padding: 15px 0; }
             .p-badge { font-size: 0.7rem; padding: 5px 15px; top: -12px; }
+            
+            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        }
+        
+        @keyframes pulseGold {
+            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); transform: translateX(50%) scale(1); }
+            70% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); transform: translateX(50%) scale(1.05); }
+            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); transform: translateX(50%) scale(1); }
         }
     </style>
 </head>
@@ -276,70 +206,37 @@
     <div class="w-full h-3 bg-white border-b border-gray-100 shadow-sm relative z-20"></div>
 
     <div id="product" class="bg-burgundy relative z-10 mx-4 md:mx-12 rounded-[20px] md:rounded-[30px] overflow-hidden text-white h-auto shadow-2xl my-6">
-        
         <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-burgundy via-burgundy to-black z-0"></div>
         <div class="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none z-0"></div>
 
         <section class="relative z-10 p-5 md:p-12 flex flex-col gap-4">
-            
             <div class="flex flex-row items-stretch gap-3 md:gap-10">
-                
                 <div class="w-[60%] md:w-1/2 flex flex-col justify-center">
                     <span class="text-[7px] md:text-xs font-bold tracking-[0.2em] text-gold uppercase mb-1 animate-pulse">Limited Offer</span>
-                    
                     <h2 class="text-lg md:text-5xl font-serif font-bold mb-1 md:mb-4 leading-tight">Starter Pack <br><span class="italic text-white/80 font-light">MC Pemula.</span></h2>
-                    
-                    <p class="hidden md:block text-sm text-white/80 mb-4 leading-relaxed border-l-2 border-gold pl-3">
-                        Bingung mulai dari mana? Dapatkan panduan lengkap "Out of The Box".
-                    </p>
-
+                    <p class="hidden md:block text-sm text-white/80 mb-4 leading-relaxed border-l-2 border-gold pl-3">Bingung mulai dari mana? Dapatkan panduan lengkap "Out of The Box".</p>
                     <div class="space-y-1.5 md:space-y-3 mt-1">
-                        <div class="flex items-center gap-1.5">
-                            <span class="text-gold text-[8px] md:text-sm">✓</span>
-                            <span class="text-[8px] md:text-sm font-medium">Script MC Lengkap</span>
-                        </div>
-                        
-                        <div class="flex items-center gap-1.5 bg-gold/20 border border-gold/40 rounded px-1.5 py-1 -ml-1.5 shadow-sm">
-                            <span class="text-gold text-[8px] md:text-sm">★</span>
-                            <span class="text-[8px] md:text-sm font-bold text-white tracking-wide">Komunitas MC Exclusive</span>
-                        </div>
-
-                         <div class="flex items-center gap-1.5">
-                            <span class="text-gold text-[8px] md:text-sm">✓</span>
-                            <span class="text-[8px] md:text-sm font-medium">Checklist Alat Tempur</span>
-                        </div>
+                        <div class="flex items-center gap-1.5"><span class="text-gold text-[8px] md:text-sm">✓</span><span class="text-[8px] md:text-sm font-medium">Script MC Lengkap</span></div>
+                        <div class="flex items-center gap-1.5 bg-gold/20 border border-gold/40 rounded px-1.5 py-1 -ml-1.5 shadow-sm"><span class="text-gold text-[8px] md:text-sm">★</span><span class="text-[8px] md:text-sm font-bold text-white tracking-wide">Komunitas MC Exclusive</span></div>
+                         <div class="flex items-center gap-1.5"><span class="text-gold text-[8px] md:text-sm">✓</span><span class="text-[8px] md:text-sm font-medium">Checklist Alat Tempur</span></div>
                     </div>
                 </div>
-
                 <div class="w-[40%] md:w-1/2 relative">
                     <div class="w-full h-32 md:h-[400px] relative rounded-lg overflow-hidden border border-white/20 shadow-lg bg-black group">
-                        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition">
-                            <source src="https://image2url.com/r2/default/videos/1769419909000-6ca8c722-38c4-4ef1-9f81-cb40bd73f12c.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-2 text-center">
-                            <p class="text-[6px] md:text-[10px] tracking-widest text-gold uppercase font-bold">PREVIEW VIDEO</p>
-                        </div>
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"><source src="https://image2url.com/r2/default/videos/1769419909000-6ca8c722-38c4-4ef1-9f81-cb40bd73f12c.mp4" type="video/mp4"></video>
+                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-2 text-center"><p class="text-[6px] md:text-[10px] tracking-widest text-gold uppercase font-bold">PREVIEW VIDEO</p></div>
                     </div>
                 </div>
             </div>
-
             <div class="w-full mt-2 md:mt-6 bg-white/5 rounded-xl p-3 md:p-6 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-3">
-                
                 <div class="flex items-center gap-3 md:gap-4 w-full md:w-auto justify-center md:justify-start">
                     <div class="flex flex-col items-center md:items-start">
-                        <div class="flex items-center gap-2">
-                            <span class="text-[9px] md:text-sm text-white/50 line-through">Rp 122.500</span>
-                            <span class="bg-red-600 text-white text-[7px] md:text-[10px] font-bold px-4 py-0.5 rounded whitespace-nowrap tracking-wider animate-pulse border border-red-400">HEMAT 60%</span>
-                        </div>
+                        <div class="flex items-center gap-2"><span class="text-[9px] md:text-sm text-white/50 line-through">Rp 122.500</span><span class="bg-red-600 text-white text-[7px] md:text-[10px] font-bold px-4 py-0.5 rounded whitespace-nowrap tracking-wider animate-pulse border border-red-400">HEMAT 60%</span></div>
                         <div class="text-2xl md:text-4xl font-serif font-bold text-white leading-none mt-0.5">Rp 49.000</div>
                     </div>
                 </div>
-
-                <a href="https://lynk.id/rizakamilaa/r9lwz0g281wl" target="_blank" class="w-full md:w-auto bg-white text-burgundy text-center px-5 py-2 md:py-3 text-[7px] md:text-sm font-bold tracking-[0.2em] rounded-full hover:bg-gold hover:text-white transition duration-300 shadow-xl active:scale-95">
-                    AMBIL PROMO SEKARANG →
-                </a>
+                <a href="https://lynk.id/rizakamilaa/r9lwz0g281wl" target="_blank" class="w-full md:w-auto bg-white text-burgundy text-center px-5 py-2 md:py-3 text-[7px] md:text-sm font-bold tracking-[0.2em] rounded-full hover:bg-gold hover:text-white transition duration-300 shadow-xl active:scale-95">AMBIL PROMO SEKARANG →</a>
             </div>
-
         </section>
     </div>
 
@@ -348,14 +245,12 @@
             <span class="text-burgundy font-bold text-[8px] tracking-[0.3em] uppercase">Services</span>
             <h2 class="text-xl font-serif font-bold mt-1 text-black">Pilih Paket Belajar</h2>
         </div>
-
         <div class="pricing-row scroll-section delay-100">
             <div class="pricing-card card-online">
                 <div>
                     <h3 class="p-title">Private<br>Speaking</h3>
                     <div class="p-subtitle">Online Zoom • 60 Menit</div>
                     <div class="p-price">195K <span>/sesi</span></div>
-                    
                     <ul class="p-features">
                         <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Bicara Tenang & Pede</li>
                         <li><i class="fas fa-check-circle" style="color:var(--p-primary)"></i> Olah Intonasi</li>
@@ -364,16 +259,14 @@
                         <li><i class="fas fa-users" style="color:var(--p-primary)"></i> Free: Komunitas</li>
                     </ul>
                 </div>
-                <a href="https://lynk.id/rizakamilaa/kl9ng1gk6276" class="p-btn" target="_blank">Daftar Online</a>
+                <a href="https://wa.link/yourlink" class="p-btn" target="_blank">Daftar Online</a>
             </div>
-
             <div class="pricing-card card-offline">
                 <div class="p-badge">BEST CHOICE</div>
                 <div>
                     <h3 class="p-title">Private<br>MC Offline</h3>
                     <div class="p-subtitle">Malang Area • 60 Menit</div>
                     <div class="p-price">250K <span>/sesi</span></div>
-                    
                     <ul class="p-features">
                         <li><i class="fas fa-microphone-alt"></i> <strong>Praktik Langsung</strong></li>
                         <li><i class="fas fa-file-alt"></i> Bedah Script MC</li>
@@ -382,10 +275,11 @@
                         <li><i class="fas fa-id-card"></i> Personal Branding</li>
                     </ul>
                 </div>
-                <a href="https://lynk.id/rizakamilaa/aZmbpOD" class="p-btn" target="_blank">Booking Offline</a>
+                <a href="https://wa.link/yourlink" class="p-btn" target="_blank">Booking Offline</a>
             </div>
         </div>
     </div>
+
     <section id="mc" class="py-8 md:py-20 bg-white text-burgundy overflow-hidden relative border-t border-gray-100">
         <div class="px-5 md:px-20 mb-4 md:mb-10 flex justify-between items-end scroll-section">
             <div>
@@ -393,37 +287,91 @@
                 <p class="text-[9px] md:text-xs text-gray-500 mt-1 tracking-widest uppercase">Formal • Wedding • Event</p>
             </div>
         </div>
-
         <div id="mc-scroller" class="flex overflow-x-auto gap-4 px-4 pb-4 no-scrollbar items-end" style="scroll-behavior: auto;">
-             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm">
-                <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-                <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Bimtek</p></div>
-            </div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm">
-                <img src="https://image2url.com/r2/default/images/1769416544304-68a69248-6d9b-43af-aa5e-d47966ac5eec.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-                 <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">MC Mekaarpreneur</p></div>
-            </div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm">
-                <img src="https://image2url.com/r2/default/images/1769404509038-8e86cf3b-a0ee-4fc2-8724-00aaa52dab89.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-                 <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">MC Gathering</p></div>
-            </div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm">
-                <img src="https://image2url.com/r2/default/images/1769404539447-ecea453d-970f-4441-8612-208f8709159c.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-                 <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Online Mentoring</p></div>
-            </div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm">
-                <img src="https://image2url.com/r2/default/images/1769404575301-ac8fffbc-c43c-485d-b79a-66de92d8be34.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-                 <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Private 1:1</p></div>
-            </div>
-             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm">
-                <img src="https://image2url.com/r2/default/images/1769404629454-ff9b228d-3654-4741-b84b-b5ae1712c4e9.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-                 <div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Public Speaking</p></div>
-            </div>
-            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm">
-                <img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
-            </div>
+             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Bimtek</p></div></div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769416544304-68a69248-6d9b-43af-aa5e-d47966ac5eec.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">MC Mekaarpreneur</p></div></div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404509038-8e86cf3b-a0ee-4fc2-8724-00aaa52dab89.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">MC Gathering</p></div></div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404539447-ecea453d-970f-4441-8612-208f8709159c.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Online Mentoring</p></div></div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404575301-ac8fffbc-c43c-485d-b79a-66de92d8be34.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Private 1:1</p></div></div>
+             <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404629454-ff9b228d-3654-4741-b84b-b5ae1712c4e9.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"><div class="absolute bottom-0 left-0 p-2 bg-gradient-to-t from-black/80 to-transparent w-full"><p class="text-[8px] font-bold text-white uppercase">Public Speaking</p></div></div>
+            <div class="flex-shrink-0 w-32 h-44 md:w-80 md:h-96 relative bg-gray-100 group overflow-hidden rounded-sm"><img src="https://image2url.com/r2/default/images/1769404447233-358d5dbb-d664-4973-91a5-59b496475195.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"></div>
         </div>
     </section>
+
+    <div class="bg-white py-8 relative z-20">
+        <div class="text-center mb-6 scroll-section">
+            <span class="text-burgundy font-bold text-[8px] tracking-[0.3em] uppercase">More Products</span>
+            <h2 class="text-xl font-serif font-bold mt-1 text-black">Katalog Kelas Lainnya</h2>
+        </div>
+
+        <div class="product-grid scroll-section delay-100">
+            
+            <div class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://image2url.com/r2/default/images/1769524097745-920cb59d-dc31-4cb6-a092-64e4a0fa5360.png" alt="Session" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <div class="product-name">MC Fundamentals – Mini Class 4x Meet</div>
+                        <div class="price-container-grid">
+                            <span class="original-price-grid">Rp 900.000</span>
+                            <span class="discount-price-grid">Rp 450.000</span>
+                        </div>
+                    </div>
+                    <a href="https://lynk.id/rizakamilaa/owdg4ym2nl1y" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://image2url.com/r2/default/images/1769524394623-92f96820-d084-4da6-9d96-74aad9678678.png" alt="Review" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <div class="product-name">MC Basic Intensive</div>
+                        <div class="price-container-grid">
+                            <span class="original-price-grid">Rp 550.000</span>
+                            <span class="discount-price-grid">Rp 250.000</span>
+                        </div>
+                    </div>
+                    <a href="https://lynk.id/rizakamilaa/aZmbpOD" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://image2url.com/r2/default/images/1769524412601-a8eedd73-760b-4ce8-ae70-c38d054dd9f9.png" alt="Ebook" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <div class="product-name">MC Wedding Mastery</div>
+                        <div class="price-container-grid">
+                            <span class="original-price-grid">Rp 900.000</span>
+                            <span class="discount-price-grid">Rp 449.000</span>
+                        </div>
+                    </div>
+                    <a href="https://lynk.id/rizakamilaa/owdg4ym2nl1y" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://image2url.com/r2/default/images/1769524443764-b568cb9f-00b3-4a5a-a7da-bf215ba26212.png" alt="Template" class="card-image">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <div class="product-name">MC Protokoler Intensive</div>
+                        <div class="price-container-grid">
+                            <span class="original-price-grid">Rp 1.600.000</span>
+                            <span class="discount-price-grid">Rp 800.000</span>
+                        </div>
+                    </div>
+                    <a href="https://lynk.id/rizakamilaa/mqr9245mv0x0" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <section id="mentoring" class="py-10 md:py-20 bg-cream relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 md:px-20">
@@ -433,50 +381,14 @@
                     <h2 class="text-2xl md:text-5xl font-serif font-bold mt-1">Mentoring & <br>Teaching.</h2>
                 </div>
             </div>
-
             <div class="relative w-full h-[250px] md:h-[700px] overflow-hidden rounded-sm scroll-section delay-100">
                 <div class="flex transition-transform duration-700 ease-in-out h-full" id="mentoring-track">
-                    
-                    <a href="https://www.instagram.com/reel/DTF5uvhEdDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer">
-                        <div class="w-full h-full relative overflow-hidden rounded-sm">
-                            <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
-                                <source src="https://image2url.com/r2/default/videos/1769405263930-a1a20b88-c020-4458-93f5-088182529f4d.mp4" type="video/mp4">
-                            </video>
-                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">THURSINA</div>
-                    </a>
-
-                    <a href="https://www.instagram.com/reel/C7VyKD1PzHD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer">
-                        <div class="w-full h-full relative overflow-hidden rounded-sm">
-                            <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
-                                <source src="https://image2url.com/r2/default/videos/1769405349851-134c311a-70b1-4de4-9ab4-dc023cfe2809.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">NURUL HUDA</div>
-                    </a>
-
-                    <a href="https://www.instagram.com/reel/DKwpBt3z--K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer">
-                        <div class="w-full h-full relative overflow-hidden rounded-sm">
-                            <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
-                                <source src="https://image2url.com/r2/default/videos/1769405802982-7d86fe8a-10ed-4bbe-8460-7155d3113dcb.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">PUBLIC SPEAKING</div>
-                    </a>
-
-                     <a href="https://www.instagram.com/reel/DMaJwPTzZfY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer">
-                        <div class="w-full h-full relative overflow-hidden rounded-sm">
-                            <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
-                                <source src="https://image2url.com/r2/default/videos/1769407873903-1dfeb1a9-0a54-482b-9c8d-1e8507fbcbac.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">CREATOR</div>
-                    </a>
-
+                    <a href="https://www.instagram.com/reel/DTF5uvhEdDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer"><div class="w-full h-full relative overflow-hidden rounded-sm"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769405263930-a1a20b88-c020-4458-93f5-088182529f4d.mp4" type="video/mp4"></video><div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition"></div></div><div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">THURSINA</div></a>
+                    <a href="https://www.instagram.com/reel/C7VyKD1PzHD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer"><div class="w-full h-full relative overflow-hidden rounded-sm"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769405349851-134c311a-70b1-4de4-9ab4-dc023cfe2809.mp4" type="video/mp4"></video></div><div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">NURUL HUDA</div></a>
+                    <a href="https://www.instagram.com/reel/DKwpBt3z--K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer"><div class="w-full h-full relative overflow-hidden rounded-sm"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769405802982-7d86fe8a-10ed-4bbe-8460-7155d3113dcb.mp4" type="video/mp4"></video></div><div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">PUBLIC SPEAKING</div></a>
+                     <a href="https://www.instagram.com/reel/DMaJwPTzZfY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer"><div class="w-full h-full relative overflow-hidden rounded-sm"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769407873903-1dfeb1a9-0a54-482b-9c8d-1e8507fbcbac.mp4" type="video/mp4"></video></div><div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">CREATOR</div></a>
                 </div>
             </div>
-            
             <div class="flex justify-center mt-4 gap-2">
                 <div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-100"></div>
                 <div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-50"></div>
@@ -495,88 +407,26 @@
         </div>
     </footer>
 
-
     <script>
-        // --- 1. HERO SLIDER ---
-        let currentHero = 0;
-        const totalHero = 4;
-        const trackHero = document.getElementById('track');
-        const slides = document.querySelectorAll('.slide');
-        let heroInterval;
-
-        function updateHero() {
-            trackHero.style.transform = `translateX(-${currentHero * 25}%)`;
-            slides.forEach((s, i) => s.classList.toggle('active', i === currentHero));
-        }
+        // SLIDERS & SCROLL (SAMA SEPERTI SEBELUMNYA)
+        let currentHero = 0; const totalHero = 4; const trackHero = document.getElementById('track'); const slides = document.querySelectorAll('.slide');
+        function updateHero() { trackHero.style.transform = `translateX(-${currentHero * 25}%)`; slides.forEach((s, i) => s.classList.toggle('active', i === currentHero)); }
         function nextSlide() { currentHero = (currentHero + 1) % totalHero; updateHero(); }
         function prevSlide() { currentHero = (currentHero - 1 + totalHero) % totalHero; updateHero(); }
+        setInterval(() => { if(window.scrollY < 200) nextSlide(); }, 5000);
 
-        function startHeroTimer() {
-            heroInterval = setInterval(() => {
-                if(window.scrollY < 200) nextSlide();
-            }, 5000);
-        }
-        startHeroTimer();
-
-        // --- 2. MC SECTION: MANUAL + AUTO SCROLL ---
-        const mcScroller = document.getElementById('mc-scroller');
-        let mcScrollSpeed = 1; 
-        let isHovering = false;
-        let animationFrameId;
-
-        function autoScrollMC() {
-            if (!isHovering) {
-                if (mcScroller.scrollLeft >= (mcScroller.scrollWidth - mcScroller.clientWidth - 10)) {
-                    mcScroller.scrollLeft = 0; 
-                } else {
-                    mcScroller.scrollLeft += mcScrollSpeed;
-                }
-            }
-            animationFrameId = requestAnimationFrame(autoScrollMC);
-        }
-
+        const mcScroller = document.getElementById('mc-scroller'); let mcScrollSpeed = 1; let isHovering = false;
+        function autoScrollMC() { if (!isHovering) { if (mcScroller.scrollLeft >= (mcScroller.scrollWidth - mcScroller.clientWidth - 10)) { mcScroller.scrollLeft = 0; } else { mcScroller.scrollLeft += mcScrollSpeed; } } requestAnimationFrame(autoScrollMC); }
         autoScrollMC();
+        mcScroller.addEventListener('touchstart', () => isHovering = true); mcScroller.addEventListener('touchend', () => setTimeout(() => isHovering = false, 2000));
 
-        mcScroller.addEventListener('mouseenter', () => isHovering = true);
-        mcScroller.addEventListener('mouseleave', () => isHovering = false);
-        mcScroller.addEventListener('touchstart', () => isHovering = true);
-        mcScroller.addEventListener('touchend', () => {
-            setTimeout(() => isHovering = false, 2000);
-        });
-
-
-        // --- 3. MENTORING CAROUSEL (FORCE 3 COLUMN) ---
-        let mentoringIdx = 0;
-        const mentoringTrack = document.getElementById('mentoring-track');
-        const totalMentoringItems = mentoringTrack.children.length; 
-        const itemsPerView = 3; 
-
-        function updateMentoring() {
-            const movePerc = mentoringIdx * (100 / itemsPerView);
-            mentoringTrack.style.transform = `translateX(-${movePerc}%)`;
-        }
-
-        function nextMentoring() {
-            if (mentoringIdx >= totalMentoringItems - itemsPerView) {
-                mentoringIdx = 0;
-            } else {
-                mentoringIdx++;
-            }
-            updateMentoring();
-        }
+        let mentoringIdx = 0; const mentoringTrack = document.getElementById('mentoring-track'); const totalMentoringItems = mentoringTrack.children.length; const itemsPerView = 3; 
+        function updateMentoring() { const movePerc = mentoringIdx * (100 / itemsPerView); mentoringTrack.style.transform = `translateX(-${movePerc}%)`; }
+        function nextMentoring() { if (mentoringIdx >= totalMentoringItems - itemsPerView) { mentoringIdx = 0; } else { mentoringIdx++; } updateMentoring(); }
         setInterval(nextMentoring, 3500);
 
-        // --- 4. SCROLL REVEAL & LINK TO PRODUCT ---
-        function scrollToContent() {
-            document.getElementById('product').scrollIntoView({behavior: 'smooth'});
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-
+        function scrollToContent() { document.getElementById('product').scrollIntoView({behavior: 'smooth'}); }
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
         document.querySelectorAll('.scroll-section').forEach(el => observer.observe(el));
     </script>
 </body>
