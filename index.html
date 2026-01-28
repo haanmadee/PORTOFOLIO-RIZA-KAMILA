@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Riza Kamila | Portfolio 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400&family=Quicksand:wght@500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
@@ -21,6 +21,8 @@
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
+                        quick: ['Quicksand', 'sans-serif'],
+                        pop: ['Poppins', 'sans-serif']
                     }
                 }
             }
@@ -32,7 +34,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* HERO & ANIMATIONS */
         #hero-container { width: 100vw; height: 200px; position: relative; overflow: hidden; }
         @media (min-width: 768px) { #hero-container { height: 90vh; } }
         .slider-track { display: flex; width: 400%; height: 100%; transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); }
@@ -44,16 +45,15 @@
         .scroll-section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .scroll-section.visible { opacity: 1; transform: translateY(0); }
 
-        /* --- CSS PRICING CARD --- */
+        /* --- CSS PRICING & CATALOG --- */
         :root {
             --p-primary: #4d0a0a; --p-white: #ffffff; --p-text-dark: #1f2937; --p-gold: #C5A059;
-            /* Variables for Catalog Grid */
             --bg-card-content: #fff5f6; --btn-color: #800020; --btn-shadow-color: #4a0012; 
             --price-color: #9c0c28; --border-card: #a64d5e; 
             --text-main: #4a0404; --text-secondary: #8c5660; 
+            --maroon-card: #821131;
         }
 
-        /* PRICING STYLES */
         .pricing-row { display: flex; flex-direction: row; justify-content: center; align-items: stretch; gap: 8px; max-width: 900px; margin: 0 auto; padding: 0 10px; }
         .pricing-card { width: 50%; border-radius: 12px; padding: 15px 8px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.08); opacity: 1; font-family: 'Montserrat', sans-serif; }
         .card-online { background: var(--p-white); border: 1px solid var(--p-primary); color: var(--p-text-dark); }
@@ -71,29 +71,11 @@
         .card-offline .p-btn { background: var(--p-white); color: var(--p-primary); }
         .p-badge { position: absolute; top: -8px; right: 50%; transform: translateX(50%); background: var(--p-gold); color: #000; font-size: 0.45rem; font-weight: 800; padding: 2px 8px; border-radius: 20px; white-space: nowrap; z-index: 10; animation: pulseGold 2s infinite; letter-spacing: 0.5px; }
 
-        /* --- CSS CATALOG GRID (UPDATED: RECTANGULAR IMAGE) --- */
+        /* CATALOG GRID */
         .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; max-width: 900px; margin: 0 auto; padding: 0 15px; }
         .product-card { display: flex; flex-direction: column; background: transparent; border: none; }
-        
-        /* UBAHAN PENTING DISINI: padding-top 55% (Persegi Panjang) */
-        .card-image-wrapper { 
-            position: relative; 
-            width: 100%; 
-            padding-top: 55%; /* Dibuat 55% agar pendek (Landscape) */
-            margin-bottom: -15px; /* Margin disesuaikan agar overlap cantik */
-            z-index: 2; 
-        }
-        
-        /* UBAHAN PENTING DISINI: object-fit: cover */
-        .card-image { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            width: 100%; height: 100%; 
-            object-fit: cover; /* Agar gambar full mengisi kotak persegi panjang */
-            border-radius: 8px; /* Sedikit rounded di gambar */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Shadow biar pop-up */
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-        }
-        
+        .card-image-wrapper { position: relative; width: 100%; padding-top: 55%; margin-bottom: -15px; z-index: 2; }
+        .card-image { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .product-card:hover .card-image { transform: translate(-50%, -50%) scale(1.05) rotate(-1deg); }
         .card-content { background: var(--bg-card-content); padding: 20px 12px 14px 12px; border-radius: 16px; box-shadow: 0 4px 0 var(--border-card); border: 2px solid var(--border-card); display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; z-index: 1; text-align: left; transition: transform 0.2s ease; font-family: 'Quicksand', sans-serif; }
         .product-card:hover .card-content { transform: translateY(-2px); }
@@ -105,25 +87,30 @@
         .btn-minimal:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--btn-shadow-color); background-color: #9c0c28; }
         .btn-minimal:active { transform: translateY(4px); box-shadow: 0 0 0 var(--btn-shadow-color); }
 
-        /* Media Query Desktop */
+        /* MAROON SLIDER STYLES */
+        .maroon-slider-wrapper { position: relative; width: 100%; max-width: 480px; margin: 0 auto; padding-bottom: 30px; }
+        .maroon-slides-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; gap: 15px; padding: 0 5px; }
+        .maroon-slides-container::-webkit-scrollbar { display: none; }
+        .maroon-card { flex: 0 0 100%; scroll-snap-align: center; background-color: var(--maroon-card); color: white; border-radius: 16px; padding: 20px 25px; position: relative; overflow: hidden; height: 160px; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(255,255,255,0.1); font-family: 'Poppins', sans-serif; }
+        .bg-icon { position: absolute; right: -10px; bottom: -20px; font-size: 7rem; color: rgba(255, 255, 255, 0.05); transform: rotate(-10deg); pointer-events: none; }
+        .m-title { font-size: 1.1rem; font-weight: 700; line-height: 1.2; text-transform: uppercase; margin-bottom: 5px; }
+        .m-tagline { font-size: 0.75rem; font-weight: 600; color: var(--p-gold); margin-bottom: 5px; }
+        .m-desc { font-size: 0.7rem; opacity: 0.9; font-weight: 300; line-height: 1.4; max-width: 85%; margin-bottom: 15px; }
+        .badge-list { font-size: 0.65rem; background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 2px; }
+        .cta-link { display: inline-flex; align-items: center; color: white; text-decoration: none; font-size: 0.8rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; width: fit-content; transition: 0.3s; z-index: 10; }
+        .cta-link:hover { color: var(--p-gold); border-color: var(--p-gold); }
+        .cta-link i { margin-left: 6px; font-size: 0.7rem; transition: 0.3s; }
+        .cta-link:hover i { transform: translateX(5px); }
+        .dots-container { display: flex; justify-content: center; margin-top: 15px; gap: 6px; }
+        .dot { width: 6px; height: 6px; background-color: #d1d5db; border-radius: 50%; transition: 0.3s; }
+        .dot.active { background-color: var(--maroon-card); width: 20px; border-radius: 10px; }
+
         @media (min-width: 768px) {
-            .pricing-card { padding: 25px; }
-            .p-title { font-size: 1.2rem; }
-            .p-subtitle { font-size: 0.8rem; }
-            .p-price { font-size: 2rem; margin-bottom: 20px; }
-            .p-features li { font-size: 0.85rem; margin-bottom: 10px; }
-            .p-features li i { font-size: 1rem; margin-right: 10px; }
-            .p-btn { font-size: 0.9rem; padding: 15px 0; }
-            .p-badge { font-size: 0.7rem; padding: 5px 15px; top: -12px; }
-            
+            .pricing-card { padding: 25px; } .p-title { font-size: 1.2rem; } .p-subtitle { font-size: 0.8rem; } .p-price { font-size: 2rem; margin-bottom: 20px; } .p-features li { font-size: 0.85rem; margin-bottom: 10px; } .p-features li i { font-size: 1rem; margin-right: 10px; } .p-btn { font-size: 0.9rem; padding: 15px 0; } .p-badge { font-size: 0.7rem; padding: 5px 15px; top: -12px; }
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
         }
         
-        @keyframes pulseGold {
-            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); transform: translateX(50%) scale(1); }
-            70% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); transform: translateX(50%) scale(1.05); }
-            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); transform: translateX(50%) scale(1); }
-        }
+        @keyframes pulseGold { 0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); transform: translateX(50%) scale(1); } 70% { box-shadow: 0 0 0 6px rgba(197, 160, 89, 0); transform: translateX(50%) scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); transform: translateX(50%) scale(1); } }
     </style>
 </head>
 <body class="text-gray-900">
@@ -132,7 +119,7 @@
         <div class="hidden md:flex gap-6 text-[10px] tracking-[0.2em] font-bold uppercase text-burgundy bg-white/80 px-6 py-2 rounded-full backdrop-blur-sm">
             <a href="#product" class="hover:text-gold transition">Shop</a>
             <a href="#mc" class="hover:text-gold transition">MC</a>
-            <a href="#mentoring" class="hover:text-gold transition">Mentoring</a>
+            <a href="#speaking" class="hover:text-gold transition">Speaking</a>
         </div>
     </nav>
 
@@ -308,27 +295,27 @@
             
             <div class="product-card">
                 <div class="card-image-wrapper">
-                    <img src="https://image2url.com/r2/default/images/1769524097745-920cb59d-dc31-4cb6-a092-64e4a0fa5360.png" alt="Session" class="card-image">
+                    <img src="https://image2url.com/r2/default/images/1769431842867-c3b9c19a-d1a6-4038-b664-cbd27afcd60c.png" alt="Session" class="card-image">
                 </div>
                 <div class="card-content">
                     <div>
-                        <div class="product-name">MC Fundamentals – Mini Class 4x Meet</div>
+                        <div class="product-name">Private Public Speaking Coaching - ONLINE</div>
                         <div class="price-container-grid">
-                            <span class="original-price-grid">Rp 900.000</span>
-                            <span class="discount-price-grid">Rp 450.000</span>
+                            <span class="original-price-grid">Rp 300.000</span>
+                            <span class="discount-price-grid">Rp 150.000</span>
                         </div>
                     </div>
-                    <a href="https://lynk.id/rizakamilaa/owdg4ym2nl1y" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                    <a href="https://lynk.id/rizakamilaa/kl9ng1gk6276" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
                 </div>
             </div>
 
             <div class="product-card">
                 <div class="card-image-wrapper">
-                    <img src="https://image2url.com/r2/default/images/1769524394623-92f96820-d084-4da6-9d96-74aad9678678.png" alt="Review" class="card-image">
+                    <img src="https://image2url.com/r2/default/images/1769431891926-64655f91-9a20-4e06-9a89-e32c0dc39dc5.png" alt="Review" class="card-image">
                 </div>
                 <div class="card-content">
                     <div>
-                        <div class="product-name">MC Basic Intensive</div>
+                        <div class="product-name">Private Mentoring (All-in-One) - OFFLINE</div>
                         <div class="price-container-grid">
                             <span class="original-price-grid">Rp 550.000</span>
                             <span class="discount-price-grid">Rp 250.000</span>
@@ -340,11 +327,11 @@
             
             <div class="product-card">
                 <div class="card-image-wrapper">
-                    <img src="https://image2url.com/r2/default/images/1769524412601-a8eedd73-760b-4ce8-ae70-c38d054dd9f9.png" alt="Ebook" class="card-image">
+                    <img src="https://image2url.com/r2/default/images/1769433337055-ae722d90-497c-4344-ad65-6a90dca25b04.png" alt="Ebook" class="card-image">
                 </div>
                 <div class="card-content">
                     <div>
-                        <div class="product-name">MC Wedding Mastery</div>
+                        <div class="product-name">MC Fundamentals – Mini Class 3x Meet</div>
                         <div class="price-container-grid">
                             <span class="original-price-grid">Rp 900.000</span>
                             <span class="discount-price-grid">Rp 449.000</span>
@@ -356,11 +343,11 @@
             
             <div class="product-card">
                 <div class="card-image-wrapper">
-                    <img src="https://image2url.com/r2/default/images/1769524443764-b568cb9f-00b3-4a5a-a7da-bf215ba26212.png" alt="Template" class="card-image">
+                    <img src="https://cdn.lynkid.my.id/draft-products/07-12-2025/1765117443634_3028094.png" alt="Template" class="card-image">
                 </div>
                 <div class="card-content">
                     <div>
-                        <div class="product-name">MC Protokoler Intensive</div>
+                        <div class="product-name">Core Public Speaking - Mini Class 4x Meet</div>
                         <div class="price-container-grid">
                             <span class="original-price-grid">Rp 1.600.000</span>
                             <span class="discount-price-grid">Rp 800.000</span>
@@ -373,26 +360,174 @@
         </div>
     </div>
 
-    <section id="mentoring" class="py-10 md:py-20 bg-cream relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 md:px-20">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-4 md:mb-10 scroll-section">
-                <div>
-                    <span class="text-burgundy font-bold text-[9px] tracking-[0.3em] uppercase">Education</span>
-                    <h2 class="text-2xl md:text-5xl font-serif font-bold mt-1">Mentoring & <br>Teaching.</h2>
+    <section id="speaking" class="py-10 md:py-20 bg-cream relative overflow-hidden">
+        <div class="px-5 md:px-20 mb-4 md:mb-10 flex justify-between items-end scroll-section">
+            <div class="text-left w-full"> 
+                <span class="text-burgundy font-bold text-[9px] tracking-[0.3em] uppercase">Expertise</span>
+                <h2 class="text-2xl md:text-5xl font-serif font-bold mt-1 text-left">Public<br>Speaking.</h2>
+            </div>
+        </div>
+
+        <div class="maroon-slider-wrapper scroll-section delay-100">
+            <div class="maroon-slides-container" id="maroon-slider">
+
+                <div class="maroon-card">
+                    <i class="fas fa-bullhorn bg-icon"></i>
+                    <div class="m-title">Public Speaking Fundamentals</div>
+                    <div class="m-tagline">Build Confidence & Clarity</div>
+                    <div class="m-desc">
+                        Mini Class • 4 Sessions • Practice-Based<br>
+                        <span class="badge-list">Foundation Level</span>
+                    </div>
+                    <a href="https://lynk.id/rizakamilaa/mqr9245mv0x0" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="maroon-card">
+                    <i class="fas fa-heart bg-icon"></i>
+                    <div class="m-title">Confident Speaker Bootcamp</div>
+                    <div class="m-tagline">Overcome Fear & Anxiety</div>
+                    <div class="m-desc">
+                        Target: Pemula • Overthinking • Takut Ngomong<br>
+                        <span class="badge-list">Supportive Environment</span>
+                    </div>
+                    <a href="http://lynk.id/rizakamilaa/jrx10o0n15jy/checkout" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="maroon-card">
+                    <i class="fas fa-briefcase bg-icon"></i>
+                    <div class="m-title">Pro Presentation Skills</div>
+                    <div class="m-tagline">Structure • Delivery • Impact</div>
+                    <div class="m-desc">
+                        Fokus: Pitching • Rapat • Kerjaan Kantor<br>
+                        <span class="badge-list">Case-Based Practice</span>
+                    </div>
+                    <a href="http://lynk.id/rizakamilaa/pw203x3n1q6v/checkout" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="maroon-card">
+                    <i class="fas fa-video bg-icon"></i>
+                    <div class="m-title">Camera Speaking</div>
+                    <div class="m-tagline">Speak Naturally on Camera</div>
+                    <div class="m-desc">
+                        Target: Creator • UMKM • Personal Branding<br>
+                        <span class="badge-list">Feedback Session</span>
+                    </div>
+                    <a href="http://lynk.id/rizakamilaa/yd794o472omy/checkout" class="cta-link" target="_blank">Booking Sekarang <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+
+            <div class="dots-container" id="dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <div class="bg-cream py-8 relative z-20">
+            <div class="text-center mb-6 scroll-section">
+                <span class="text-burgundy font-bold text-[8px] tracking-[0.3em] uppercase">Speaking Tools</span>
+                <h2 class="text-xl font-serif font-bold mt-1 text-black">Produk Public Speaking</h2>
+            </div>
+            <div class="product-grid scroll-section delay-100">
+                <div class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://cdn.lynkid.my.id/draft-products/07-12-2025/1765116802307_6566482.png" alt="Session" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <div class="product-name">6 Design Poster Edukasi Aesthetic Series 2</div>
+                            <div class="price-container-grid">
+                                <span class="original-price-grid">Rp 29.000</span>
+                                <span class="discount-price-grid">Rp 15.000</span>
+                            </div>
+                        </div>
+                        <a href="https://lynk.id/ajengwahys/d4lekqvx7l8v" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://cdn.lynkid.my.id/draft-products/07-12-2025/1765117366002_7900045.png" alt="Review" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <div class="product-name">10 Design Flash Cards Media Belajar Angka 1-10</div>
+                            <div class="price-container-grid">
+                                <span class="original-price-grid">Rp 27.000</span>
+                                <span class="discount-price-grid">Rp 10.000</span>
+                            </div>
+                        </div>
+                        <a href="https://lynk.id/ajengwahys/lle16qldk183" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://cdn.lynkid.my.id/draft-products/07-12-2025/1765117410879_5846008.png" alt="Ebook" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <div class="product-name">26 Design Flash Cards Media Belajar Alphabet</div>
+                            <div class="price-container-grid">
+                                <span class="original-price-grid">Rp 29.000</span>
+                                <span class="discount-price-grid">Rp 15.000</span>
+                            </div>
+                        </div>
+                        <a href="https://lynk.id/ajengwahys/p0e61pxr8z6d" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://cdn.lynkid.my.id/draft-products/07-12-2025/1765117443634_3028094.png" alt="Template" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <div class="product-name">50++ Flash Cards Edukasi Media Belajar Anak</div>
+                            <div class="price-container-grid">
+                                <span class="original-price-grid">Rp 29.000</span>
+                                <span class="discount-price-grid">Rp 10.000</span>
+                            </div>
+                        </div>
+                        <a href="https://lynk.id/ajengwahys/7eo283d4qoen" class="btn-minimal" target="_blank">Lihat Detail ￫</a>
+                    </div>
                 </div>
             </div>
-            <div class="relative w-full h-[250px] md:h-[700px] overflow-hidden rounded-sm scroll-section delay-100">
-                <div class="flex transition-transform duration-700 ease-in-out h-full" id="mentoring-track">
-                    <a href="https://www.instagram.com/reel/DTF5uvhEdDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer"><div class="w-full h-full relative overflow-hidden rounded-sm"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769405263930-a1a20b88-c020-4458-93f5-088182529f4d.mp4" type="video/mp4"></video><div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition"></div></div><div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">THURSINA</div></a>
-                    <a href="https://www.instagram.com/reel/C7VyKD1PzHD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer"><div class="w-full h-full relative overflow-hidden rounded-sm"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769405349851-134c311a-70b1-4de4-9ab4-dc023cfe2809.mp4" type="video/mp4"></video></div><div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">NURUL HUDA</div></a>
-                    <a href="https://www.instagram.com/reel/DKwpBt3z--K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer"><div class="w-full h-full relative overflow-hidden rounded-sm"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769405802982-7d86fe8a-10ed-4bbe-8460-7155d3113dcb.mp4" type="video/mp4"></video></div><div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">PUBLIC SPEAKING</div></a>
-                     <a href="https://www.instagram.com/reel/DMaJwPTzZfY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="w-1/3 flex-shrink-0 p-1 relative h-full group block cursor-pointer"><div class="w-full h-full relative overflow-hidden rounded-sm"><video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500"><source src="https://image2url.com/r2/default/videos/1769407873903-1dfeb1a9-0a54-482b-9c8d-1e8507fbcbac.mp4" type="video/mp4"></video></div><div class="absolute top-2 left-2 bg-white px-1.5 py-0.5 text-[5px] md:text-xs font-bold tracking-widest text-burgundy shadow-md z-20">CREATOR</div></a>
-                </div>
-            </div>
-            <div class="flex justify-center mt-4 gap-2">
-                <div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-100"></div>
-                <div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-50"></div>
-            </div>
+        </div>
+        <div class="flex overflow-x-auto gap-3 px-5 pb-4 no-scrollbar items-start" style="scroll-snap-type: x mandatory;">
+            
+            <a href="https://www.instagram.com/reel/DTF5uvhEdDc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <source src="https://image2url.com/r2/default/videos/1769405263930-a1a20b88-c020-4458-93f5-088182529f4d.mp4" type="video/mp4">
+                </video>
+                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">THURSINA</div>
+            </a>
+
+            <a href="https://www.instagram.com/reel/C7VyKD1PzHD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <source src="https://image2url.com/r2/default/videos/1769405349851-134c311a-70b1-4de4-9ab4-dc023cfe2809.mp4" type="video/mp4">
+                </video>
+                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">NURUL HUDA</div>
+            </a>
+
+            <a href="https://www.instagram.com/reel/DKwpBt3z--K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <source src="https://image2url.com/r2/default/videos/1769405802982-7d86fe8a-10ed-4bbe-8460-7155d3113dcb.mp4" type="video/mp4">
+                </video>
+                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">PUBLIC SPEAKING</div>
+            </a>
+
+             <a href="https://www.instagram.com/reel/DMaJwPTzZfY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="flex-shrink-0 w-[40vw] md:w-[300px] aspect-[9/16] relative group block cursor-pointer rounded-lg overflow-hidden snap-center">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    <source src="https://image2url.com/r2/default/videos/1769407873903-1dfeb1a9-0a54-482b-9c8d-1e8507fbcbac.mp4" type="video/mp4">
+                </video>
+                <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[6px] md:text-[9px] font-bold tracking-widest text-burgundy shadow-md z-20">CREATOR</div>
+            </a>
+            
+        </div>
+        
+        <div class="flex justify-center mt-6 gap-2">
+            <div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-100"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-burgundy opacity-50"></div>
         </div>
     </section>
 
@@ -403,12 +538,12 @@
             WHATSAPP ME
         </a>
         <div class="mt-8 text-[8px] text-gray-400 tracking-wider">
-            © 2025 RIZA IMROATUL KAMILA • ALL RIGHTS RESERVED
+            © 2026 RIZA IMROATUL KAMILA • ALL RIGHTS RESERVED
         </div>
     </footer>
 
     <script>
-        // SLIDERS & SCROLL (SAMA SEPERTI SEBELUMNYA)
+        // SLIDERS & SCROLL
         let currentHero = 0; const totalHero = 4; const trackHero = document.getElementById('track'); const slides = document.querySelectorAll('.slide');
         function updateHero() { trackHero.style.transform = `translateX(-${currentHero * 25}%)`; slides.forEach((s, i) => s.classList.toggle('active', i === currentHero)); }
         function nextSlide() { currentHero = (currentHero + 1) % totalHero; updateHero(); }
@@ -420,14 +555,44 @@
         autoScrollMC();
         mcScroller.addEventListener('touchstart', () => isHovering = true); mcScroller.addEventListener('touchend', () => setTimeout(() => isHovering = false, 2000));
 
-        let mentoringIdx = 0; const mentoringTrack = document.getElementById('mentoring-track'); const totalMentoringItems = mentoringTrack.children.length; const itemsPerView = 3; 
-        function updateMentoring() { const movePerc = mentoringIdx * (100 / itemsPerView); mentoringTrack.style.transform = `translateX(-${movePerc}%)`; }
-        function nextMentoring() { if (mentoringIdx >= totalMentoringItems - itemsPerView) { mentoringIdx = 0; } else { mentoringIdx++; } updateMentoring(); }
-        setInterval(nextMentoring, 3500);
-
         function scrollToContent() { document.getElementById('product').scrollIntoView({behavior: 'smooth'}); }
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
         document.querySelectorAll('.scroll-section').forEach(el => observer.observe(el));
+
+        // AUTO SLIDE FOR MAROON SLIDER (5 SECONDS)
+        const maroonSlider = document.getElementById('maroon-slider');
+        const maroonDots = document.querySelectorAll('.dot');
+        let maroonInterval;
+
+        function startMaroonAutoSlide() {
+            maroonInterval = setInterval(() => {
+                const cardWidth = maroonSlider.offsetWidth; 
+                const maxScroll = maroonSlider.scrollWidth - maroonSlider.clientWidth; 
+
+                if (maroonSlider.scrollLeft >= maxScroll - 10) {
+                    maroonSlider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    maroonSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                }
+            }, 5000);
+        }
+
+        startMaroonAutoSlide();
+
+        maroonSlider.addEventListener('scroll', () => {
+            const scrollLeft = maroonSlider.scrollLeft;
+            const width = maroonSlider.offsetWidth;
+            const activeIndex = Math.round(scrollLeft / width);
+            maroonDots.forEach((dot, index) => {
+                if (index === activeIndex) { dot.classList.add('active'); } else { dot.classList.remove('active'); }
+            });
+        });
+
+        maroonSlider.addEventListener('touchstart', () => clearInterval(maroonInterval));
+        maroonSlider.addEventListener('touchend', () => setTimeout(startMaroonAutoSlide, 2000));
+        maroonSlider.addEventListener('mouseenter', () => clearInterval(maroonInterval));
+        maroonSlider.addEventListener('mouseleave', () => startMaroonAutoSlide());
+
     </script>
 </body>
 </html>
